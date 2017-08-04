@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form method="post" action="/guestbook3/delete">
-	<input type="hidden" name="no" value="${param.no }">
+	<input type="hidden" name="no" value="${no }">
 	<table border = 1 width = 500>
 		<tr>
 			<td>비밀번호</td>

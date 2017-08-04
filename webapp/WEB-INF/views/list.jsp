@@ -27,14 +27,13 @@
 	<br/>
 
 	
-	
-<c:forEach items="${list }" var = "vo">
+<c:forEach items="${list}" var = "vo">
 	<table width=510 border=1>
 		<tr>
 			<td>${vo.no }</td>
 			<td>${vo.name }</td>
 			<td>${vo.regDate }</td>
-			<td><a href="/guestbook3/deleteform?no=${vo.no }"> 삭제</a></td>
+			<td><a href="/guestbook3/deleteform/${vo.no }"> 삭제</a></td>
 			<td><a href ="/guestbook3/updateform?no=${vo.no }"> 수정</a></td>
 		</tr>
 		<tr>

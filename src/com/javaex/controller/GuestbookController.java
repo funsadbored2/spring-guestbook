@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javaex.dao.GuestbookDao;
@@ -25,11 +26,12 @@ public class GuestbookController {
 		 return "redirect:/list";
 	}
 	
-	@RequestMapping("deleteform")
-	public String deleteform() {
+	@RequestMapping("deleteform/{no}")
+	public String deleteform(@PathVariable("no") int no, Model model) {
 
+		model.addAttribute("no", no);
+		System.out.println(no);
 		// delete전 비밀번호 확인하는 부분으로 사용자 입력 값 가져오기
-		System.out.println("deleteform");
 		
 		return "deleteform";
 
@@ -48,7 +50,7 @@ public class GuestbookController {
 	public String updateform() {
 
 		System.out.println("updateform");
-		
+
 		return "updateform";
 
 	}
