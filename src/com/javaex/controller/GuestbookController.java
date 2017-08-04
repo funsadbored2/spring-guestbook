@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.javaex.dao.GuestbookDao;
 import com.javaex.vo.GuestbookVo;
@@ -18,7 +19,7 @@ public class GuestbookController {
 	@Autowired
 	private GuestbookDao dao;
 	
-	@RequestMapping("/add")
+	@RequestMapping("add")
 	public String add(GuestbookVo vo) {
 
 		 dao.add(vo);
@@ -37,7 +38,7 @@ public class GuestbookController {
 
 	}  
 	
-	@RequestMapping("delete")
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public String delete(GuestbookVo vo) {
 		
 		dao.delete(vo.getPassword(), vo.getNo());
@@ -55,7 +56,7 @@ public class GuestbookController {
 
 	}
 	
-	@RequestMapping("update")
+	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(GuestbookVo vo) {
 
 		System.out.println("update");
@@ -66,7 +67,7 @@ public class GuestbookController {
 
 	} 
 	
-	@RequestMapping("/list")
+	@RequestMapping("list")
 	public String list(Model model) {
 
 		System.out.println("리스트로");
